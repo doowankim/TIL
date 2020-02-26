@@ -27,7 +27,7 @@
 
 > 1. 브라우저에서 DOM의 변화가 일어나게 되면, 브라우저는 위의 렌더링 과정을 다시 거치는 비효율적인 면이 발생합니다.
 > (한 페이지에서 많은 조작이 일어나는 SPA에서는 더더욱 비효율적임)
-> 2. DOM의 element를 조작하는 과정에서 쓰였던 기존의 document.getElementById()나 Jquery같은 API가
+> 2. DOM의 element를 조작하는 과정에서 쓰였던 기존의 `document.getElementById()`나 `Jquery`같은 API가
 >프로그램의 규모가 커지면 element의 수도 늘어나고 이벤트도 늘어나기 때문에 api 조작이 불편해집니다.
 >
 ### 4. Virtual DOM
