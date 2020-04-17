@@ -146,4 +146,5 @@ componentWillUnmount() {
 > 컴포넌트가 더 이상 필요하지 않게 되면 componentWillUnmount() API가 호출된다.
 > 여기서는 주로 등록했었던 이벤트르르 제거하고, 만약에 setTimeout을 걸은 것이 있다면
 > clearTimeout을 통하여 제거를 한다.
-> 추가적으로 외부 라이브러리를 사용한 것이 있고 해당 라이브러리에 dispose 기능이 있다면 여기서 호출하면 된다.
+> 추가적으로 외부 라이브러리를 사용한 것이 있고 해당 라이브러리에 
+> dispose 기능이 있다면 여기서 호출하면 된다.
