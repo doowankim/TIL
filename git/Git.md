@@ -1,4 +1,4 @@
-## Git 명령어 정리
+# Git 명령어 정리
 
 ### Git repository 연결 및 commit push 하는 법
 
@@ -32,7 +32,7 @@
 (3). `git branch --set-upstream-to origin/브랜치 이름` : ex) git branch --set-upstream-to origin/feature/a
 > (3) command 입력 시 branch 연동
 
-#### Git branch 삭제
+### Git branch 삭제
 > 작업이 끝나고, 기준 branch로 pull request가 종료되어서 merge까지 완료하였다면 해당 branch를 삭제한다
 >
 (1). `git checkout develop` : develop branch로 이동(다른 branch로 이동 후 삭제하여야 한다)
