@@ -62,3 +62,30 @@ let orderSheet2 = {
 createKeyboard(orderSheet1);
 createKeyboard(orderSheet2);
 ```
+
+### 함수 타입에 대해 알아보자.
+
+Interface의 프로퍼티로 함수 시그니처를 정의할 수 있다.
+
+시그니처란?
+MDN 웹 문서에 따르면, functions 그리고 method의 입력과 출력을 정의한다.
+시그니처는 다음을 포함한다.
+
+- parameters 와 그들의 types
+- 반환값과 타입
+- 던져지거나 콜백으로 반환되는 exceptions
+- OOP 에서 메서드의 접근 권한에 대한 정보(public, static, 혹은 prototype와 같은 키워드들)
+
+```ts
+interface TypingSpec {
+	(sound: string, weight: number): boolean;
+}
+const checkCreatedKeyboard: TypingSpec = (s: string, w: number): boolean =>
+	w < 10;
+console.log(checkCreatedKeyboard('took', 11)); // false;
+console.log(checkCreatedKeyboard('tok', 3)); // true
+```
+
+위의 코드에서는 만들어진 키보드를 체크하는 인터페이스에는 sound(누르는 소리) 와 weight(누르는 가중치)를 파라미터로 받는다. 만약 누르는 힘이 10 이상 든다면 제품을 쓸 수 없다고 가정했다.
+
+인터페이스 프로퍼티로 정해준 함수 시그니쳐의 파라미터의 이름과 구현하는 부분의 파라미터 이름이 꼭 동일할 필요는 없다. s 와 w 로 정해준것을 확인할 수 있다.
