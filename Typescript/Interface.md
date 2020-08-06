@@ -89,3 +89,54 @@ console.log(checkCreatedKeyboard('tok', 3)); // true
 위의 코드에서는 만들어진 키보드를 체크하는 인터페이스에는 sound(누르는 소리) 와 weight(누르는 가중치)를 파라미터로 받는다. 만약 누르는 힘이 10 이상 든다면 제품을 쓸 수 없다고 가정했다.
 
 인터페이스 프로퍼티로 정해준 함수 시그니쳐의 파라미터의 이름과 구현하는 부분의 파라미터 이름이 꼭 동일할 필요는 없다. s 와 w 로 정해준것을 확인할 수 있다.
+
+### Indexable 타입에 대해 알아보자.
+
+Indexable 타입 예제
+
+```ts
+interface StringArray {
+	[index: number]: string;
+}
+let myArray: StringArray;
+myArray = ['bob', 'fred'];
+let myStr: string = myArray[0];
+console.log(myStr); // bob
+```
+
+StringArray가 number로 인덱스 될 때 string을 리턴한다.
+
+Javascript Index의 동작방식
+타입스크립트로 들어가기 전에 자바스크립트의 객체 프로퍼티를 접근하는 방법을 살펴보자. 자바스크립트는 객체의 프로퍼티에 접근할 때 문자열로 접근할 수 있다. []를 사용해 접근이 가능하다.
+
+```js
+let obj = {};
+obj['str'] = 'string';
+console.log(obj['str']); // string
+```
+
+그리고 객체로도 객체의 프로퍼티로 지정할 수 있다.
+
+```js
+let obj = {};
+let foo = {};
+foo[obj] = 'Key is obj';
+console.log(foo[obj]); // Key is obj
+```
+
+**자바스크립트 Index의 동작방식에 의해 객체의 Index에 접근할 때 내부적으로 toString() 메서드를 호출하여 문자열로 변형된 값을 통해 접근한다.**
+
+```js
+let obj = {
+	toString() {
+		console.log('toString() called');
+	},
+};
+let foo = {};
+foo[obj] = 'Key is obj'; // toString() called
+console.log(foo[obj]);
+// toString() called
+// Key is obj
+```
+
+toString() 메서드를 호출해 문자열로 바뀌는것을 콘솔로 확인했다. 위의 예제에서는 toString() 에 대한 콘솔로그를 두번 호출하는데 그 이유는 접근할 때마다 toString() 이 호출되기 때문이다.
